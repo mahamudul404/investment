@@ -30,8 +30,9 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'phone' => ['required', 'string', 'unique:users,phone'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'numeric', 'digits:11'],  // Ensure it's a number with 11 digits
+            'password' => 'required|string|min:8|confirmed',
+            // Add other validation rules here
         ]);
 
 

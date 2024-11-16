@@ -19,15 +19,16 @@
                         <span class="bg-gray-200 px-4 py-3 text-gray-500 text-sm rounded-l-md border-r border-gray-300">
                             +880
                         </span>
-                        <input
-                            id="phone"
-                            name="phone"
-                            type="tel"
-                            class="flex-1 bg-transparent border-none focus:ring-0 focus:outline-none px-3 py-3 text-gray-700 text-sm"
-                            placeholder="আপনার ফোন নম্বর লিখুন"
-                            required
-                        />
+                        <input id="phone" name="phone" type="tel"
+                            class="flex-1 bg-transparent border-none focus:ring-0 focus:outline-none px-3 py-3 text-gray-700 text-sm @error('phone') border-red-500 @enderror"
+                            placeholder="আপনার ফোন নম্বর লিখুন" value="{{ old('phone') }}" <!-- Retains input value
+                            after validation failure -->
+                       
                     </div>
+                    <!-- Display Error Message -->
+                    @error('phone')
+                        <p class="text-sm text-red-500 mt-2">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Password Field -->
@@ -35,14 +36,9 @@
                     <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
                         পাসওয়ার্ড
                     </label>
-                    <input
-                        id="password"
-                        name="password"
-                        type="password"
+                    <input id="password" name="password" type="password"
                         class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 text-gray-700 text-sm"
-                        placeholder="পাসওয়ার্ড লিখুন"
-                        required
-                    />
+                        placeholder="পাসওয়ার্ড লিখুন" required />
                 </div>
 
                 <!-- Confirm Password Field -->
@@ -50,22 +46,15 @@
                     <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-2">
                         পাসওয়ার্ড নিশ্চিত করুন
                     </label>
-                    <input
-                        id="password_confirmation"
-                        name="password_confirmation"
-                        type="password"
+                    <input id="password_confirmation" name="password_confirmation" type="password"
                         class="w-full bg-gray-100 border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-500 text-gray-700 text-sm"
-                        placeholder="পাসওয়ার্ড পুনরায় লিখুন"
-                        required
-                    />
+                        placeholder="পাসওয়ার্ড পুনরায় লিখুন" required />
                 </div>
 
                 <!-- Submit Button -->
                 <div>
-                    <button
-                        type="submit"
-                        class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-3 rounded-md text-sm hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                    >
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-3 rounded-md text-sm hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
                         সাইন আপ
                     </button>
                 </div>
